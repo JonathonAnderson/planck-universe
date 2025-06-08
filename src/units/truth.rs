@@ -16,7 +16,7 @@ impl super::Unit for Truth {
       min   : 0.0,
 
       dimension: super::Dimension::Truth,
-      symbol: 'T',
+      symbol: '✅',
     }
   }
 

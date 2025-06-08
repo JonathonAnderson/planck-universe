@@ -16,7 +16,7 @@ impl super::Unit for Speed {
       min   : 0.0,
 
       dimension: super::Dimension::Speed,
-      symbol: 'T',
+      symbol: 'S',
     }
   }
 
