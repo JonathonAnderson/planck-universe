@@ -13,6 +13,7 @@ pub enum Dimension {
   Speed,
   Truth,
   Time,
+  Length,
 }
 
 mod speed;
@@ -23,3 +24,6 @@ pub use truth::Truth;
 
 mod tick;
 pub use tick::Tick;
+
+mod length;
+pub use length::Length;
