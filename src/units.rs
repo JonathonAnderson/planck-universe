@@ -12,6 +12,7 @@ pub trait Unit {
 pub enum Dimension {
   Speed,
   Truth,
+  Time,
 }
 
 mod speed;
@@ -19,3 +20,6 @@ pub use speed::Speed;
 
 mod truth;
 pub use truth::Truth;
+
+mod tick;
+pub use tick::Tick;
