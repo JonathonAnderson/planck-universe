@@ -1,40 +1,40 @@
 #[derive(Debug)]
-pub struct Truth {
-  truth: f64,
+pub struct Tick {
+  period: f64,
   max: f64,
   min: f64,
 
-  dimension: super::Dimension,
+  dimension: crate::units::Dimension,
   symbol : char,
 }
 
-impl super::Unit for Truth {
+impl crate::units::FundamentalUnit for Tick {
   fn new(value: f64) -> Self {
-    Truth {
-      truth : value,
+    Tick {
+      period : value,
       max   : 1.0,
       min   : 0.0,
 
-      dimension: super::Dimension::Truth,
-      symbol: '✅',
+      dimension: crate::units::Dimension::Time,
+      symbol: 'T',
     }
   }
 
   fn value(&self) -> f64 {
-    self.truth
+    self.period
   }
   fn set_value(self, value: f64) -> Result<Self, String> {
     if (value >= self.min) && (value <= self.max) {
       let new_value = Self{
-        truth : value,
+        period : value,
         ..self
       };
       Ok(new_value)
     } else {
-      Err("value must be above or equal to zero, no truth... AND... value must be below of equal to one, absolute truth".to_owned())
+      Err("value must be above or equal to zero, start of period... AND... value must be below of equal to one, end of period".to_owned())
     }
   }
-  fn dimension(&self) -> super::Dimension {
+  fn dimension(&self) -> crate::units::Dimension {
     self.dimension
   }
   fn symbol(&self) -> char {

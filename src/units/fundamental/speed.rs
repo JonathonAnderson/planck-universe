@@ -4,18 +4,18 @@ pub struct Speed {
   max: f64,
   min: f64,
 
-  dimension: super::Dimension,
+  dimension: crate::units::Dimension,
   symbol : char,
 }
 
-impl super::Unit for Speed {
+impl crate::units::FundamentalUnit for Speed {
   fn new(value: f64) -> Self {
     Speed {
       speed : value,
       max   : 1.0,
       min   : 0.0,
 
-      dimension: super::Dimension::Speed,
+      dimension: crate::units::Dimension::Speed,
       symbol: 'S',
     }
   }
@@ -34,7 +34,7 @@ impl super::Unit for Speed {
       Err("value must be above or equal to zero, no motion... AND... value must be below of equal to one, the value of light".to_owned())
     }
   }
-  fn dimension(&self) -> super::Dimension {
+  fn dimension(&self) -> crate::units::Dimension {
     self.dimension
   }
   fn symbol(&self) -> char {

@@ -1,9 +1,15 @@
-pub trait Unit {
+pub trait FundamentalUnit {
   fn new(value: f64) -> Self;
   fn value(&self) -> f64;
   fn set_value(self, value: f64) -> Result<Self, String>
     where
       Self: Sized;
+  fn dimension(&self) -> Dimension;
+  fn symbol(&self) -> char;
+}
+
+pub trait DerivedUnit {
+  fn value(&self) -> f64;
   fn dimension(&self) -> Dimension;
   fn symbol(&self) -> char;
 }
@@ -16,14 +22,12 @@ pub enum Dimension {
   Length,
 }
 
-mod speed;
-pub use speed::Speed;
+mod fundamental;
 
-mod truth;
-pub use truth::Truth;
+mod derived;
 
-mod tick;
-pub use tick::Tick;
+pub use fundamental::speed::Speed;
+pub use fundamental::tick::Tick;
+pub use fundamental::truth::Truth;
 
-mod length;
-pub use length::Length;
+pub use derived::length::Length;

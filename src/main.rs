@@ -1,4 +1,4 @@
-use planck_universe::units::{Unit, Speed};
+use planck_universe::units::{FundamentalUnit, Speed};
 
 pub fn main() -> () {
     let speed : Speed = Speed::new(0.0);
