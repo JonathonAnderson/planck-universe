@@ -31,7 +31,7 @@ impl crate::units::FundamentalUnit for Speed {
       };
       Ok(new_value)
     } else {
-      Err("value must be above or equal to zero, no motion... AND... value must be below of equal to one, the value of light".to_owned())
+      Err("value must be above or equal to zero, no motion... AND... value must be below of equal to one, the value of the speed light".to_owned())
     }
   }
   fn dimension(&self) -> crate::units::Dimension {

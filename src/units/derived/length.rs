@@ -1,4 +1,5 @@
-use crate::units::{ fundamental::speed::Speed, FundamentalUnit };
+use crate::units::{ fundamental::speed::Speed, FundamentalUnit, DerivedUnit };
+use crate::units::derived::period::Period;
 
 #[derive(Debug)]
 pub struct Length {
@@ -9,9 +10,10 @@ pub struct Length {
 }
 
 impl Length {
-  fn new(speed: &Speed, tick_count: u128) -> Self {
+  // Ticks are moments on a time scale where 0 = beginning of time and 1 = end of time
+  fn new(speed: &Speed, period: &Period) -> Self {
     Length {
-      length : speed.value() * (tick_count as f64),
+      length : speed.value() * period.value(),
 
       dimension : crate::units::Dimension::Length,
       symbol : 'L',
@@ -19,7 +21,7 @@ impl Length {
   }
 }
 
-impl crate::units::DerivedUnit for Length {
+impl DerivedUnit for Length {
   fn value(&self) -> f64 {
     self.length
   }
