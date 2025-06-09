@@ -30,4 +30,5 @@ pub use fundamental::speed::Speed;
 pub use fundamental::tick::Tick;
 pub use fundamental::truth::Truth;
 
+pub use derived::period::Period;
 pub use derived::length::Length;
