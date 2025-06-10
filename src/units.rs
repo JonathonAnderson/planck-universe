@@ -1,25 +1,23 @@
-pub trait FundamentalUnit {
+pub trait Unit {
+  fn dimension(&self) -> Dimension;
+  fn symbol(&self) -> char;
+}
+
+pub trait SignedNormalized {
   fn new(value: f64) -> Self;
   fn value(&self) -> f64;
-  fn set_value(self, value: f64) -> Result<Self, String>
-    where
-      Self: Sized;
-  fn dimension(&self) -> Dimension;
-  fn symbol(&self) -> char;
 }
 
-pub trait DerivedUnit {
-  fn value(&self) -> f64;
-  fn dimension(&self) -> Dimension;
-  fn symbol(&self) -> char;
+pub trait Discrete {
+  fn new(value: BigInt) -> Self;
+  fn value(&self) -> BigInt;
 }
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub enum Dimension {
   Speed,
-  Truth,
   Time,
-  Length,
+  Space,
 }
 
 mod fundamental;
@@ -27,8 +25,9 @@ mod fundamental;
 mod derived;
 
 pub use fundamental::speed::Speed;
-pub use fundamental::tick::Tick;
-pub use fundamental::truth::Truth;
+pub use fundamental::time::Moment;
+pub use fundamental::space::Point;
 
-pub use derived::period::Period;
-pub use derived::length::Length;
+// pub use derived::period::Period;
+// pub use derived::length::Length;
+use num_bigint::BigInt;
