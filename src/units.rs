@@ -1,3 +1,5 @@
+use num_bigint::BigInt;
+
 pub trait Unit {
   fn dimension(&self) -> Dimension;
   fn symbol(&self) -> char;
@@ -30,4 +32,3 @@ pub use fundamental::space::Point;
 
 // pub use derived::period::Period;
 // pub use derived::length::Length;
-use num_bigint::BigInt;
