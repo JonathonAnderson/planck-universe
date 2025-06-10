@@ -1,4 +1,4 @@
-use crate::units::{self, Discrete};
+use crate::units::Discrete;
 use num_bigint::BigInt;
 use num_traits::sign::Signed;
 
@@ -8,7 +8,7 @@ pub struct Length {
 }
 
 impl crate::units::Unit for Length {
-  fn dimension(&self) -> units::Dimension {
+  fn dimension(&self) -> crate::units::Dimension {
       crate::units::Dimension::Space
   }
   fn symbol(&self) -> char {

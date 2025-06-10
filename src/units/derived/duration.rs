@@ -1,4 +1,4 @@
-use crate::units::{self, Discrete};
+use crate::units::Discrete;
 use num_bigint::BigInt;
 use num_traits::sign::Signed;
 
@@ -8,7 +8,7 @@ pub struct Duration {
 }
 
 impl crate::units::Unit for Duration {
-  fn dimension(&self) -> units::Dimension {
+  fn dimension(&self) -> crate::units::Dimension {
       crate::units::Dimension::Time
   }
   fn symbol(&self) -> char {
