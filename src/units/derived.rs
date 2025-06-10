@@ -1,2 +1,2 @@
-pub mod period;
+pub mod duration;
 pub mod length;

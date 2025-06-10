@@ -15,6 +15,16 @@ pub trait Discrete {
   fn units_from_origin(&self) -> BigInt;
 }
 
+pub trait Length {
+  fn new(point: fundamental::space::Point, other_point: fundamental::space::Point) -> Self;
+  fn length(&self) -> BigInt;
+}
+
+pub trait Duration {
+  fn new(point: fundamental::time::Moment, other_point: fundamental::time::Moment) -> Self;
+  fn duration(&self) -> BigInt;
+}
+
 #[derive(Debug, Clone)]
 pub enum Dimension {
   Speed,

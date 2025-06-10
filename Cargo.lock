@@ -41,4 +41,5 @@ name = "planck-universe"
 version = "0.0.1"
 dependencies = [
  "num-bigint",
+ "num-traits",
 ]
