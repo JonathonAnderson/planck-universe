@@ -2,7 +2,7 @@ use num_bigint::BigInt;
 
 #[derive(Debug)]
 pub struct Point {
-  value: BigInt,
+  units_from_origin: BigInt,
 
   dimension: crate::units::Dimension,
   symbol : char,
@@ -18,15 +18,15 @@ impl crate::units::Unit for Point {
 }
 
 impl crate::units::Discrete for Point {
-  fn new(value: BigInt) -> Self {
+  fn new(units_from_origin: BigInt) -> Self {
     Point {
-      value,
+      units_from_origin,
 
-      dimension: crate::units::Dimension::Time,
-      symbol: 'T',
+      dimension: crate::units::Dimension::Space,
+      symbol: 'P',
     }
   }
-  fn value(&self) -> BigInt {
-    self.value.clone()
+  fn units_from_origin(&self) -> BigInt {
+    self.units_from_origin.clone()
   }
 }

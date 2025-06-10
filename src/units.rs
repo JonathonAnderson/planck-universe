@@ -10,7 +10,7 @@ pub trait SignedNormalized {
 
 pub trait Discrete {
   fn new(value: BigInt) -> Self;
-  fn value(&self) -> BigInt;
+  fn units_from_origin(&self) -> BigInt;
 }
 
 #[derive(Debug, Clone)]
