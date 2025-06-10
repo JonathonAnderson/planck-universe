@@ -10,11 +10,6 @@ pub trait SignedNormalized {
   fn value(&self) -> f64;
 }
 
-pub trait Discrete {
-  fn new(value: BigInt) -> Self;
-  fn units_from_origin(&self) -> BigInt;
-}
-
 pub trait Length {
   fn new(point: fundamental::space::Point, other_point: fundamental::space::Point) -> Self;
   fn length(&self) -> BigInt;

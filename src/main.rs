@@ -6,7 +6,7 @@ pub fn main() -> () {
 
     println!("{:#?}", speed);
 
-    let point: Point =  Point::new(BigInt::from(34));
+    let point: Point =  Point::new(vec![BigInt::from(34)]);
 
     println!("{:#?}", point);
 

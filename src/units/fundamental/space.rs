@@ -2,7 +2,19 @@ use num_bigint::BigInt;
 
 #[derive(Debug)]
 pub struct Point {
-  units_from_origin: BigInt,
+  // TODO: maybe this should be a vector of points to account for multi-dimensional points
+  units_from_origin: Vec<BigInt>,
+}
+
+impl Point {
+  pub fn new (units_from_origin: Vec<BigInt>) -> Self {
+    Point {
+      units_from_origin,
+    }
+  }
+  pub fn units_from_origin(&self) -> Vec<BigInt> {
+    self.units_from_origin.clone()
+  }
 }
 
 impl crate::units::Unit for Point {
@@ -11,16 +23,5 @@ impl crate::units::Unit for Point {
   }
   fn symbol(&self) -> char {
     'P'
-  }
-}
-
-impl crate::units::Discrete for Point {
-  fn new(units_from_origin: BigInt) -> Self {
-    Point {
-      units_from_origin,
-    }
-  }
-  fn units_from_origin(&self) -> BigInt {
-    self.units_from_origin.clone()
   }
 }
