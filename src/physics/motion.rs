@@ -14,7 +14,7 @@ impl Speed {
       negative_normalized
     }
   }
-  pub fn value(&self) -> f64 {
+  pub fn negative_normalized(&self) -> f64 {
     self.negative_normalized
   }
 }
