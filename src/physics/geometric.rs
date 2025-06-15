@@ -3,7 +3,6 @@ use num_bigint::BigInt;
 ////////////////////////////////////////
 #[derive(Debug, Clone)]
 pub struct Point {
-  // TODO: maybe this should be a vector of points to account for multi-dimensional points
   units_from_origin: Vec<BigInt>,
 }
 
@@ -28,6 +27,7 @@ pub struct Line {
 
 impl Line {
   pub fn new(point0: &Point, point1: &Point) -> Self {
+    // TODO: Received points with different number of axes
     if point0.units_from_origin().len() != point1.units_from_origin().len() { todo!() }
 
     let point0 = point0.clone();

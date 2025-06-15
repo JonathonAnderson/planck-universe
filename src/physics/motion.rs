@@ -8,6 +8,7 @@ pub struct Speed {
 
 impl Speed {
   pub fn new(negative_normalized: f64) -> Self {
+    // TODO: received value that falls outside the negative normalized bounds of -1 to 1
     if (negative_normalized < MIN_SPEED) || (negative_normalized > MAX_SPEED) { todo!() };
 
     Speed {
