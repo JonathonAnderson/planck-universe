@@ -2,8 +2,8 @@ pub mod temporal;
 pub mod geometric;
 
 // Speed
-const MAX: f64 = 1.0;
-const MIN: f64 = -1.0;
+const MAX_SPEED: f64 = 1.0;
+const MIN_SPEED: f64 = -1.0;
 
 #[derive(Debug)]
 pub struct Speed {
@@ -12,7 +12,7 @@ pub struct Speed {
 
 impl Speed {
   pub fn new(negative_normalized: f64) -> Self {
-    if (negative_normalized < MIN) || (negative_normalized > MAX) { todo!() };
+    if (negative_normalized < MIN_SPEED) || (negative_normalized > MAX_SPEED) { todo!() };
 
     Speed {
       negative_normalized
