@@ -1,6 +1,6 @@
-use planck_universe::units::Speed;
-use planck_universe::units::temporal::*;
-use planck_universe::units::geometric::*;
+use planck_universe::physics::Speed;
+use planck_universe::physics::temporal::*;
+use planck_universe::physics::geometric::*;
 use num_bigint::BigInt;
 
 pub fn main() -> () {
