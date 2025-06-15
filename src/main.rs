@@ -9,6 +9,9 @@ pub fn main() -> () {
 
     println!("{:#?}", speed_0);
 
+    //
+    // Space
+    //
     enum Axis {
         X = 0,
         Y = 1,
@@ -29,26 +32,48 @@ pub fn main() -> () {
 
     println!("{:#?}", point_0);
 
-    let moment_0: Moment = Moment::new(BigInt::from(45));
-    let moment_1: Moment = Moment::new(BigInt::from(6_0));
-
-    println!("{:#?}", moment_0);
-    println!("{:#?}", moment_1);
-
-    let duration_0: Duration = Duration::new(&moment_0, &moment_1);
-
-    println!("{:#?}", duration_0);
-
     let line_0: Line = Line::new(&point_0, &point_1);
 
     println!("{:#?}", line_0);
 
+
+
+    //
+    // Time
+    //
+
+    let moment_0: Moment = Moment::new(BigInt::from(45));
+    let moment_1: Moment = Moment::new(BigInt::from(60));
+
+    let moment_2: Moment = Moment::new(BigInt::from(1076));
+    let moment_3: Moment = Moment::new(BigInt::from(3234));
+
+    println!("{:#?}", moment_0);
+    println!("{:#?}", moment_1);
+
+    println!("{:#?}", moment_2);
+    println!("{:#?}", moment_3);
+
+    let duration_0: Duration = Duration::new(&moment_0, &moment_1);
+    let duration_1: Duration = Duration::new(&moment_2, &moment_3);
+
+    println!("{:#?}", duration_0);
+    println!("{:#?}", duration_1);
+
+    let period_0: Period = Period::new(&duration_0, &duration_1);
+
+    println!("{:#?}", period_0);
+
+
+
+
+    // Objects
+    //
     // This is a point moving at zero speed and frozen in time
     let point_object_0: Object = Object::new(&moment_0, &moment_1, &vec![point_0.clone()], &speed_0);
 
     println!("{:#?}", point_object_0);
     // This is a line moving at zero speed and frozen in time
     let dimension_1_line_0: Object = Object::new(&moment_0, &moment_1, &vec![point_0.clone(), point_1.clone()], &speed_0);
-
     println!("{:#?}", dimension_1_line_0);
 }
