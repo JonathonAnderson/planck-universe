@@ -2,12 +2,12 @@ use num_bigint::BigInt;
 
 #[derive(Debug)]
 pub struct Duration {
-  moment0: crate::units::fundamental::time::Moment,
-  moment1: crate::units::fundamental::time::Moment,
+  moment0: crate::units::fundamental::Moment,
+  moment1: crate::units::fundamental::Moment,
 }
 
 impl Duration {
-  pub fn new(moment0: &crate::units::fundamental::time::Moment, moment1: &crate::units::fundamental::time::Moment) -> Self {
+  pub fn new(moment0: &crate::units::fundamental::Moment, moment1: &crate::units::fundamental::Moment) -> Self {
     Duration {
       moment0 : moment0.clone(),
       moment1 :moment1.clone(),
