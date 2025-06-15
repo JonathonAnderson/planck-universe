@@ -30,14 +30,13 @@ impl Line {
   pub fn new(point0: &Point, point1: &Point) -> Self {
     if point0.units_from_origin().len() != point1.units_from_origin().len() { todo!() }
 
-    Line {
-      point0 : point0.clone(),
-      point1 : point1.clone(),
-      length :  {
+    let point0 = point0.clone();
+    let point1 = point1.clone();
+    let length =  {
                   let mut axis = 0;
 
-                  let point0_units: Vec<BigInt> = self.point0.units_from_origin();
-                  let point1_units: Vec<BigInt> = self.point1.units_from_origin();
+                  let point0_units: Vec<BigInt> = point0.units_from_origin();
+                  let point1_units: Vec<BigInt> = point1.units_from_origin();
 
                   let mut length: BigInt = BigInt::from(0);
 
@@ -50,9 +49,15 @@ impl Line {
                   }
 
                   length.sqrt()
-                }
+                };
+
+    Line {
+      point0,
+      point1,
+      length,
     }
   }
+
   pub fn point0(&self) -> Point{
     self.point0.clone()
   }
@@ -60,5 +65,6 @@ impl Line {
     self.point1.clone()
   }
   pub fn length(&self) -> BigInt {
-    self.length
+    self.length.clone()
+  }
 }
