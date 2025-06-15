@@ -2,6 +2,8 @@
 name = "planck-universe"
 version = "0.0.1"
 edition = "2021"
+description = "an experiment in physics"
+license = "MIT'
 
 [dependencies]
 num-bigint = "0.4.6"
