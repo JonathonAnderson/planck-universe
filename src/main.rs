@@ -32,6 +32,11 @@ pub fn main() -> () {
 
     println!("{:#?}", point_0);
 
+    let shape_0_points: Vec<Point> = vec![point_0.clone(), point_1.clone()];
+    let shape_0: Shape = Shape::new(shape_0_points);
+
+    println!("{:#?}", shape_0);
+
     let line_0: Line = Line::new(&point_0, &point_1);
 
     println!("{:#?}", line_0);
@@ -69,6 +74,6 @@ pub fn main() -> () {
     println!("{:#?}", point_object_0);
 
     // This is a line moving at zero speed and exists for a fixed duration
-    let dimension_1_line_0: Object = Object::new(&moment_2, &moment_3, &vec![point_0.clone(), point_1.clone()], &speed_0);
+    let dimension_1_line_0: Object = Object::new(&duration_1.begin(), &duration_1.end(), &shape_0.points(), &speed_0);
     println!("{:#?}", dimension_1_line_0);
 }
