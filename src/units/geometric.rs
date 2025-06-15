@@ -1,13 +1,41 @@
 use num_bigint::BigInt;
 
+////////////////////////////////////////
+#[derive(Debug, Clone)]
+pub struct Point {
+  // TODO: maybe this should be a vector of points to account for multi-dimensional points
+  units_from_origin: Vec<BigInt>,
+}
+
+impl Point {
+  pub fn new (units_from_origin: Vec<BigInt>) -> Self {
+    Point {
+      units_from_origin,
+    }
+  }
+  pub fn units_from_origin(&self) -> Vec<BigInt> {
+    self.units_from_origin.clone()
+  }
+}
+
+impl crate::units::Unit for Point {
+  fn dimension(&self) -> crate::units::Dimension {
+    crate::units::Dimension::Space
+  }
+  fn symbol(&self) -> char {
+    'P'
+  }
+}
+
+////////////////////////////////////////
 #[derive(Debug)]
 pub struct Line {
-  point0: crate::units::fundamental::Point,
-  point1: crate::units::fundamental::Point,
+  point0: Point,
+  point1: Point,
 }
 
 impl Line {
-  pub fn new(point0: &crate::units::fundamental::Point, point1: &crate::units::fundamental::Point) -> Self {
+  pub fn new(point0: &Point, point1: &Point) -> Self {
     if point0.units_from_origin().len() != point1.units_from_origin().len() { todo!() }
 
     Line {
