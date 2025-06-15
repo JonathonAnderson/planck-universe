@@ -60,7 +60,8 @@ pub fn main() -> () {
     let period_0: Period = Period::new(&duration_0, &duration_1);
 
     println!("{:#?}", period_0);
-
+    
+    //
     // Objects
     //
     // This is a point moving at zero speed and frozen in time
