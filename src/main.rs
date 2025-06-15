@@ -82,7 +82,7 @@ pub fn main() -> () {
 
     println!("This is a line moving at non-zero speed and exists for a fixed duration");
     let one_dimensional_line_0: Object = Object::new();
-    let one_dimensional_line_0 = one_dimensional_line_0.set_speed(speed_0_5);
+    let one_dimensional_line_0 = one_dimensional_line_0.set_normalized_speed(speed_0_5);
     let one_dimensional_line_0 = one_dimensional_line_0.set_t_0(&moment_2);
     let one_dimensional_line_0 = one_dimensional_line_0.set_t_final(&moment_3);
     println!("{:#?}", one_dimensional_line_0);
