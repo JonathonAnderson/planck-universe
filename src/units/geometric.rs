@@ -18,15 +18,6 @@ impl Point {
   }
 }
 
-impl crate::units::Unit for Point {
-  fn dimension(&self) -> crate::units::Dimension {
-    crate::units::Dimension::Space
-  }
-  fn symbol(&self) -> char {
-    'P'
-  }
-}
-
 ////////////////////////////////////////
 #[derive(Debug)]
 pub struct Line {
@@ -60,14 +51,5 @@ impl Line {
     }
 
     length.sqrt()
-  }
-}
-
-impl crate::units::Unit for Line {
-  fn dimension(&self) -> crate::units::Dimension {
-      crate::units::Dimension::Space
-  }
-  fn symbol(&self) -> char {
-      'L'
   }
 }

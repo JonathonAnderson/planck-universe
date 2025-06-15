@@ -23,20 +23,6 @@ impl Speed {
   }
 }
 
-impl crate::units::Unit for Speed {
-  fn dimension(&self) -> crate::units::Dimension {
-    crate::units::Dimension::Speed
-  }
-  fn symbol(&self) -> char {
-    'S'
-  }
-}
-
-pub trait Unit {
-  fn dimension(&self) -> Dimension;
-  fn symbol(&self) -> char;
-}
-
 #[derive(Debug, Clone)]
 pub enum Dimension {
   Speed,

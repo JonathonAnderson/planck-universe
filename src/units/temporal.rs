@@ -17,15 +17,6 @@ impl Moment {
   }
 }
 
-impl crate::units::Unit for Moment {
-  fn dimension(&self) -> crate::units::Dimension {
-    crate::units::Dimension::Time
-  }
-  fn symbol(&self) -> char {
-    'M'
-  }
-}
-
 ////////////////////////////////////////
 #[derive(Debug)]
 pub struct Duration {
@@ -42,14 +33,5 @@ impl Duration {
   }
   pub fn duration(&self) -> BigInt {
     self.moment0.units_from_origin() - self.moment1.units_from_origin()
-  }
-}
-
-impl crate::units::Unit for Duration {
-  fn dimension(&self) -> crate::units::Dimension {
-      crate::units::Dimension::Time
-  }
-  fn symbol(&self) -> char {
-      'D'
   }
 }
