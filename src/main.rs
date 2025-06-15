@@ -7,7 +7,7 @@ pub fn main() -> () {
     //
     // Motion
     //
-    let _speed_0: Speed =  Speed::new(0.0);
+    let speed_0_5: Speed = Speed::new(0.5);
 
     //
     // Geometrics
@@ -65,32 +65,40 @@ pub fn main() -> () {
     //
     // Objects
     //
-    // This is a null point moving at zero speed
+    println!("This is a null point moving at zero speed");
     let null_point_0: Object = Object::new();
     println!("{:#?}", null_point_0);
 
-    // This is a point moving at zero speed and exists for a fix duration
+    println!("This is a vector with a point but no other properties");
+        let spatial_point_0: Object = Object::new();
+        let spatial_point_0: Object = Object::set_geometry(spatial_point_0,vec![point_0, point_1]);
+    println!("{:#?}", spatial_point_0);
+
+    println!("This is a point moving at zero speed and exists for a fix duration");
     let point_object_0: Object = Object::new();
-    let point_object_0 = point_object_0.set_begin_existence(&moment_0);
-    let point_object_0 = point_object_0.set_end_existence(&moment_1);
+    let point_object_0 = point_object_0.set_t_0(&moment_0);
+    let point_object_0 = point_object_0.set_t_final(&moment_1);
     println!("{:#?}", point_object_0);
 
-    // // This is a line moving at zero speed and exists for a fixed duration
-    // let one_dimensional_line_0: Object = Object::new();
-    // let one_dimensional_line_0 = one_dimensional_line_0.set_begin_existence(&moment_2);
-    // let one_dimensional_line_0 = one_dimensional_line_0.set_end_existence(&moment_3);
-    // println!("{:#?}", one_dimensional_line_0);
+    println!("This is a line moving at non-zero speed and exists for a fixed duration");
+    let one_dimensional_line_0: Object = Object::new();
+    let one_dimensional_line_0 = one_dimensional_line_0.set_speed(speed_0_5);
+    let one_dimensional_line_0 = one_dimensional_line_0.set_t_0(&moment_2);
+    let one_dimensional_line_0 = one_dimensional_line_0.set_t_final(&moment_3);
+    println!("{:#?}", one_dimensional_line_0);
 
-    // This is a mult-dimensonal moving at zero speed and exists for a fixed duration
+    println!("This is a mult-dimensonal moving at zero speed and exists for a fixed duration");
     let multi_dimensional_object_0: Object = Object::new();
+    let multi_dimensional_object_0 = multi_dimensional_object_0.set_t_0(&moment_2);
+    let multi_dimensional_object_0 = multi_dimensional_object_0.set_t_final(&moment_3);
     println!("{:#?}", multi_dimensional_object_0);
 
-    // // A 3 Dimensional object moving at a constant normalized speed
-    // let three_dimensional_constant_speed_0: Object = Object::new();
-    // println!("{:#?}", three_dimensional_constant_speed_0.set_geometry());
+    println!("A 3 Dimensional object moving at a constant normalized speed");
+    let three_dimensional_constant_speed_0: Object = Object::new();
+    println!("{:#?}", three_dimensional_constant_speed_0);
 
-    // // an oriented 3D object moving at zero speed
-    // let three_dimensional_constant_speed_0: Object = Object::new();
-    // println!("{:#?}", three_dimensional_constant_speed_0.set_geometry());
+    println!("An oriented 3D object moving at zero speed");
+    let three_dimensional_constant_speed_0: Object = Object::new();
+    println!("{:#?}", three_dimensional_constant_speed_0);
 
 }

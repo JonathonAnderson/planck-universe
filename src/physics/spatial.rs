@@ -24,9 +24,7 @@ impl Point {
 const MIN_ORIENTATION: f64 = -1.0;
 const MAX_ORIENTATION: f64 = 1.0;
 
-pub struct Orientation {
-  orientation: Vec<f64>
-}
+pub struct Orientation {}
 
 impl Orientation {
   pub fn new(point: Point, orientation: Vec<f64>) -> Self {
@@ -36,9 +34,7 @@ impl Orientation {
       if orientation < &MIN_ORIENTATION || orientation > &MAX_ORIENTATION { todo!() }
     }
 
-    Orientation {
-      orientation : vec![0.0]
-    }
+    Orientation {}
   }
 }
 
@@ -67,16 +63,13 @@ impl Speed {
 
 ////////////////////////////////////////
 pub struct Velocity {
-  speed: Speed,
-  orientation: Orientation,
+  // speed: Speed,
+  // orientation: Orientation,
 }
 
 impl Velocity {
-  pub fn new(speed: Speed, orientation: Orientation) -> Self {
-    Velocity {
-      speed,
-      orientation,
-    }
+  pub fn new() -> Self {
+    Velocity {}
   }
 }
 

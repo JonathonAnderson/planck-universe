@@ -14,56 +14,88 @@ pub struct Object {
   normalized_speed: Speed,
 }
 
+impl Default for Object {
+  fn default() -> Self {
+    Self{
+      begin_existence : Moment::new(BigInt::from(0)),
+      end_existence : Moment::new(BigInt::from(0)),
+      geometry : [].to_vec(),
+      normalized_speed : Speed::new(0.0),
+    }
+  }
+}
+
 impl Object {
   pub fn new() -> Self {
     Self {
-      begin_existence  : Moment::new(BigInt::from(0)),
-      end_existence    : Moment::new(BigInt::from(0)),
-      geometry         : vec![],
-      normalized_speed : Speed::new(0.0),
-     }
-  }
-
-  pub fn set_begin_existence(&self, moment: &Moment) -> Self {
-    Self {
-      begin_existence : moment.clone(),
-      end_existence : self.end_existence.clone(),
-      geometry : self.geometry.clone(),
-      normalized_speed : self.normalized_speed.clone(),
+      ..Default::default()
     }
   }
 
-  pub fn begin_existence(&self) -> Moment {
+  pub fn speed(&self) -> Speed {
+    self.normalized_speed.clone()
+  }
+
+  pub fn set_speed(self, new_speed: Speed) -> Self {
+    Self {
+      normalized_speed : new_speed,
+      ..Default::default()
+    }
+  }
+  
+  pub fn t_0(&self) -> Moment {
     self.begin_existence.clone()
   }
 
-  pub fn set_end_existence(self, moment: &Moment) -> Self {
+  pub fn set_t_0(self, moment: &Moment) -> Self {
     Self {
-      begin_existence : self.begin_existence,
-      end_existence : moment.clone(),
-      geometry : self.geometry,
-      normalized_speed : self.normalized_speed,
+      begin_existence : moment.clone(),
+      ..self.clone()
     }
   }
 
-  pub fn set_duration(self, duration: Duration) -> Self {
-    Object {
-      begin_existence : duration.begin(),
-      end_existence : duration.end(),
-      geometry : self.geometry,
-      normalized_speed : self.normalized_speed,
-    }
-  }
-
-  pub fn end_existence(&self) -> Moment {
+  pub fn t_final(&self) -> Moment {
     self.end_existence.clone()
   }
 
-  pub fn set_geometry(&self) -> Vec<Point> {
-    self.geometry.clone()
+  pub fn set_t_final(self, moment: &Moment) -> Self {
+    Self {
+      end_existence : moment.clone(),
+      ..self.clone()
+    }
   }
 
-  pub fn normalized_speed(&self) -> Speed {
-    self.normalized_speed.clone()
+  pub fn duration(self) -> Duration {
+    Duration::new(&self.end_existence, &self.begin_existence)
+  }
+
+  pub fn set_duration(self, duration: Duration) -> Self {
+    Self {
+      begin_existence : duration.begin(),
+      end_existence : duration.end(),
+      ..self.clone()
+    }
+  }
+
+  pub fn normalized_speed(self) -> Speed {
+    Speed::new(self.normalized_speed.negative_normalized())
+  }
+
+  pub fn set_normalized_speed(self, speed: Speed) -> Self {
+    Object {
+      normalized_speed : speed,
+      ..Default::default()
+    }
+  }
+
+  pub fn set_geometry(self, geometry: Vec<Point>) -> Self {
+      Self {
+        geometry : geometry.clone(),
+        ..self.clone()
+      }
+  }
+
+  pub fn geometry(self) -> Vec<Point> {
+    self.geometry
   }
 }
