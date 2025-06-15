@@ -11,16 +11,26 @@ pub struct Object {
 
   geometry: Vec<Point>,
 
+  orientation: Vec<f64>,
+
   normalized_speed: Speed,
 }
 
 impl Default for Object {
   fn default() -> Self {
+
+    let begin_existence = Moment::new(BigInt::from(0));
+    let end_existence = Moment::new(BigInt::from(0));
+    let geometry = [].to_vec();
+    let orientation = vec![0.0];
+    let normalized_speed = Speed::new(0.0);
+
     Self{
-      begin_existence : Moment::new(BigInt::from(0)),
-      end_existence : Moment::new(BigInt::from(0)),
-      geometry : [].to_vec(),
-      normalized_speed : Speed::new(0.0),
+      begin_existence,
+      end_existence,
+      geometry,
+      orientation,
+      normalized_speed,
     }
   }
 }

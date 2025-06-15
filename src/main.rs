@@ -95,6 +95,7 @@ pub fn main() -> () {
 
     println!("A 3 Dimensional object moving at a constant normalized speed");
     let three_dimensional_constant_speed_0: Object = Object::new();
+    let three_dimensional_constant_speed_0 = three_dimensional_constant_speed_0.set_normalized_speed(Speed::new(0.36));
     println!("{:#?}", three_dimensional_constant_speed_0);
 
     println!("An oriented 3D object moving at zero speed");
