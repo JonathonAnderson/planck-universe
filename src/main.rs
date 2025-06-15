@@ -24,7 +24,7 @@ pub fn main() -> () {
     point_0_vec.insert(Axis::Z as usize, BigInt::from(72));
     let mut point_1_vec: Vec<BigInt> = Vec::new();
     point_1_vec.insert(Axis::X as usize, BigInt::from(37));
-    point_1_vec.insert(Axis::Y as usize, BigInt::from(9_1));
+    point_1_vec.insert(Axis::Y as usize, BigInt::from(91));
     point_1_vec.insert(Axis::Z as usize, BigInt::from(4));
 
     let point_0: Point =  Point::new(point_0_vec);
@@ -32,14 +32,26 @@ pub fn main() -> () {
 
     println!("{:#?}", point_0);
 
-    let shape_0_points: Vec<Point> = vec![point_0.clone(), point_1.clone()];
-    let shape_0: Shape = Shape::new(shape_0_points);
-
-    println!("{:#?}", shape_0);
-
     let line_0: Line = Line::new(&point_0, &point_1);
 
     println!("{:#?}", line_0);
+
+    let mut point_2_vec: Vec<BigInt> = Vec::new();
+    point_2_vec.insert(Axis::X as usize, BigInt::from(76));
+    point_2_vec.insert(Axis::Y as usize, BigInt::from(46));
+    point_2_vec.insert(Axis::Z as usize, BigInt::from(11));
+    let mut point_3_vec: Vec<BigInt> = Vec::new();
+    point_3_vec.insert(Axis::X as usize, BigInt::from(95));
+    point_3_vec.insert(Axis::Y as usize, BigInt::from(62));
+    point_3_vec.insert(Axis::Z as usize, BigInt::from(84));
+
+    let point_2: Point =  Point::new(point_2_vec);
+    let point_3: Point =  Point::new(point_3_vec);
+
+    let shape_0_points: Vec<Point> = vec![point_0.clone(), point_1.clone(), point_2.clone(), point_3.clone()];
+    let shape_0: Shape = Shape::new(shape_0_points);
+
+    println!("{:#?}", shape_0);
 
     //
     // Time
