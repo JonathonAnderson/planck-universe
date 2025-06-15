@@ -9,8 +9,23 @@ pub fn main() -> () {
 
     println!("{:#?}", speed0);
 
-    let point0: Point =  Point::new(vec![BigInt::from(34)]);
-    let point1: Point =  Point::new(vec![BigInt::from(56)]);
+    enum Axis {
+        X = 0,
+        Y = 1,
+        Z = 2,
+    }
+
+    let mut point0_vec: Vec<BigInt> = Vec::new();
+    point0_vec.insert(Axis::X as usize, BigInt::from(18));
+    point0_vec.insert(Axis::Y as usize, BigInt::from(34));
+    point0_vec.insert(Axis::Z as usize, BigInt::from(72));
+    let mut point1_vec: Vec<BigInt> = Vec::new();
+    point1_vec.insert(Axis::X as usize, BigInt::from(37));
+    point1_vec.insert(Axis::Y as usize, BigInt::from(91));
+    point1_vec.insert(Axis::Z as usize, BigInt::from(4));
+
+    let point0: Point =  Point::new(point0_vec);
+    let point1: Point =  Point::new(point1_vec);
 
     println!("{:#?}", point0);
 
