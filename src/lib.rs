@@ -1,4 +1,6 @@
-use physics::{temporal::*, geometric::*, motion::*};
+use num_bigint::BigInt;
+use crate::physics::temporal::Moment;
+use crate::physics::spatial::{Point, Speed};
 
 pub mod physics;
 
@@ -13,13 +15,13 @@ pub struct Object {
 }
 
 impl Object {
-  pub fn new(begin_existence: &Moment, end_existence: &Moment, geometry: &Vec<Point>, normalized_speed: &Speed) -> Self {
-    Object {
-      begin_existence: begin_existence.clone(),
-      end_existence: end_existence.clone(),
-      geometry: geometry.clone(),
-      normalized_speed: normalized_speed.clone(),
-    }
+  pub fn new() -> Self {
+    Self {
+      begin_existence  : Moment::new(BigInt::from(0)),
+      end_existence    : Moment::new(BigInt::from(0)),
+      geometry         : vec![],
+      normalized_speed : Speed::new(0.0),
+     }
   }
 
   pub fn begin_existence(&self) -> Moment {

@@ -21,6 +21,66 @@ impl Point {
 }
 
 ////////////////////////////////////////
+const MIN_ORIENTATION: f64 = -1.0;
+const MAX_ORIENTATION: f64 = 1.0;
+
+pub struct Orientation {
+  orientation: Vec<f64>
+}
+
+impl Orientation {
+  pub fn new(point: Point, orientation: Vec<f64>) -> Self {
+    if orientation.len() != point.units_from_origin.len() { todo!() }
+
+    for orientation in &orientation {
+      if orientation < &MIN_ORIENTATION || orientation > &MAX_ORIENTATION { todo!() }
+    }
+
+    Orientation {
+      orientation
+    }
+  }
+}
+
+////////////////////////////////////////
+const MAX_SPEED: f64 = 1.0;
+const MIN_SPEED: f64 = -1.0;
+
+#[derive(Debug, Clone)]
+pub struct Speed {
+  negative_normalized: f64,
+}
+
+impl Speed {
+  pub fn new(negative_normalized: f64) -> Self {
+    // TODO: received value that falls outside the negative normalized bounds of -1 to 1
+    if (negative_normalized < MIN_SPEED) || (negative_normalized > MAX_SPEED) { todo!() };
+
+    Speed {
+      negative_normalized
+    }
+  }
+  pub fn negative_normalized(&self) -> f64 {
+    self.negative_normalized
+  }
+}
+
+////////////////////////////////////////
+pub struct Velocity {
+  speed: Speed,
+  orientation: Orientation,
+}
+
+impl Velocity {
+  pub fn new(speed: Speed, orientation: Orientation) -> Self {
+    Velocity {
+      speed,
+      orientation,
+    }
+  }
+}
+
+////////////////////////////////////////
 #[derive(Debug)]
 pub struct Shape {
   points: Vec<Point>,

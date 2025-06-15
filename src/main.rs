@@ -1,6 +1,5 @@
-use planck_universe::physics::motion::*;
 use planck_universe::physics::temporal::*;
-use planck_universe::physics::geometric::*;
+use planck_universe::physics::spatial::*;
 use planck_universe::Object;
 use num_bigint::BigInt;
 
@@ -85,14 +84,23 @@ pub fn main() -> () {
     // Objects
     //
     // This is a point moving at zero speed and exists for a fix duration
-    let point_object_0: Object = Object::new(&moment_0, &moment_1, &vec![point_0.clone()], &speed_0);
+    let point_object_0: Object = Object::new();
     println!("{:#?}", point_object_0);
 
     // This is a line moving at zero speed and exists for a fixed duration
-    let one_dimensional_line_0: Object = Object::new(&duration_1.begin(), &duration_1.end(), &vec![line_0.point0(), line_0.point1()], &speed_0);
+    let one_dimensional_line_0: Object = Object::new();
     println!("{:#?}", one_dimensional_line_0);
 
     // This is a mult-dimensonal moving at zero speed and exists for a fixed duration
-    let multi_dimensional_object_0: Object = Object::new(&duration_1.begin(), &duration_1.end(), &shape_0.points(), &speed_0);
+    let multi_dimensional_object_0: Object = Object::new();
     println!("{:#?}", multi_dimensional_object_0);
+
+    // A 3 Dimensional object moving at a constant normalized speed
+    let three_dimensional_constant_speed_0: Object = Object::new();
+    println!("{:#?}", three_dimensional_constant_speed_0.geometry());
+
+    // an oriented 3D object moving at zero speed
+    let three_dimensional_constant_speed_0: Object = Object::new();
+    println!("{:#?}", three_dimensional_constant_speed_0.geometry());
+
 }
