@@ -22,10 +22,3 @@ impl Speed {
     self.negative_normalized
   }
 }
-
-#[derive(Debug, Clone)]
-pub enum Dimension {
-  Speed,
-  Time,
-  Space,
-}
