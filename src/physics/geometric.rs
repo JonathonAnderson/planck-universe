@@ -33,7 +33,7 @@ impl Line {
     let point0 = point0.clone();
     let point1 = point1.clone();
     let length =  {
-`                   let mut axis = 0;
+                    let mut axis = 0;
 
                     let point0_units: Vec<BigInt> = point0.units_from_origin();
                     let point1_units: Vec<BigInt> = point1.units_from_origin();
