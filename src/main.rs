@@ -89,6 +89,10 @@ pub fn main() -> () {
     println!("{:#?}", point_object_0);
 
     // This is a line moving at zero speed and exists for a fixed duration
-    let one_dimnsional_line_0: Object = Object::new(&duration_1.begin(), &duration_1.end(), &shape_0.points(), &speed_0);
-    println!("{:#?}", one_dimnsional_line_0);
+    let one_dimensional_line_0: Object = Object::new(&duration_1.begin(), &duration_1.end(), &vec![line_0.point0(), line_0.point1()], &speed_0);
+    println!("{:#?}", one_dimensional_line_0);
+
+    // This is a mult-dimensonal moving at zero speed and exists for a fixed duration
+    let multi_dimensional_object_0: Object = Object::new(&duration_1.begin(), &duration_1.end(), &shape_0.points(), &speed_0);
+    println!("{:#?}", multi_dimensional_object_0);
 }
