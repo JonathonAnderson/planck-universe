@@ -21,21 +21,12 @@ impl Point {
 }
 
 ////////////////////////////////////////
-const MIN_ORIENTATION: f64 = -1.0;
-const MAX_ORIENTATION: f64 = 1.0;
+// const MIN_ORIENTATION: f64 = -1.0;
+// const MAX_ORIENTATION: f64 = 1.0;
 
 pub struct Orientation {}
 
 impl Orientation {
-  pub fn new(point: Point, orientation: Vec<f64>) -> Self {
-    if orientation.len() != point.units_from_origin.len() { todo!() }
-
-    for orientation in &orientation {
-      if orientation < &MIN_ORIENTATION || orientation > &MAX_ORIENTATION { todo!() }
-    }
-
-    Orientation {}
-  }
 }
 
 ////////////////////////////////////////
