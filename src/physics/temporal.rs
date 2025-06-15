@@ -50,6 +50,7 @@ impl Duration {
   }
 }
 
+////////////////////////////////////////
 #[derive(Debug)]
 pub struct Period {
   duration0: Duration,

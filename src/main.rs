@@ -36,12 +36,9 @@ pub fn main() -> () {
 
     println!("{:#?}", line_0);
 
-
-
     //
     // Time
     //
-
     let moment_0: Moment = Moment::new(BigInt::from(45));
     let moment_1: Moment = Moment::new(BigInt::from(60));
 
@@ -63,9 +60,6 @@ pub fn main() -> () {
     let period_0: Period = Period::new(&duration_0, &duration_1);
 
     println!("{:#?}", period_0);
-
-
-
 
     // Objects
     //
