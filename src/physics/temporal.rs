@@ -22,16 +22,30 @@ impl Moment {
 pub struct Duration {
   moment0: Moment,
   moment1: Moment,
+  duration: BigInt,
 }
 
 impl Duration {
-  pub fn new(moment0: &Moment, moment1: &Moment) -> Self {
+  pub fn new(moment2: &Moment, moment3: &Moment) -> Self {
+    
+    let moment0 = moment2.clone();
+    let moment1 = moment3.clone();
+    let duration = moment0.units_from_origin.clone() - moment1.units_from_origin.clone();
+
     Duration {
-      moment0 : moment0.clone(),
-      moment1 :moment1.clone(),
+      moment0,
+      moment1,
+      duration,
     }
+
+  }
+  pub fn begin(&self) -> Moment {
+    self.moment0.clone()
+  }
+  pub fn end(&self) -> Moment {
+    self.moment1.clone()
   }
   pub fn duration(&self) -> BigInt {
-    self.moment0.units_from_origin() - self.moment1.units_from_origin()
+    self.duration.clone()
   }
 }
