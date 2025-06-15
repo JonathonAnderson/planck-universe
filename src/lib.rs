@@ -31,17 +31,6 @@ impl Object {
       ..Default::default()
     }
   }
-
-  pub fn speed(&self) -> Speed {
-    self.normalized_speed.clone()
-  }
-
-  pub fn set_speed(self, new_speed: Speed) -> Self {
-    Self {
-      normalized_speed : new_speed,
-      ..Default::default()
-    }
-  }
   
   pub fn t_0(&self) -> Moment {
     self.begin_existence.clone()
