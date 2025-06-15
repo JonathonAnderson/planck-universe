@@ -5,12 +5,15 @@ use planck_universe::Object;
 use num_bigint::BigInt;
 
 pub fn main() -> () {
+    //
+    // Motion
+    //
     let speed_0: Speed =  Speed::new(0.0);
 
     println!("{:#?}", speed_0);
 
     //
-    // Space
+    // Geometrics
     //
     enum Axis {
         X = 0,
@@ -54,7 +57,7 @@ pub fn main() -> () {
     println!("{:#?}", shape_0);
 
     //
-    // Time
+    // Temporal
     //
     let moment_0: Moment = Moment::new(BigInt::from(45));
     let moment_1: Moment = Moment::new(BigInt::from(60));
