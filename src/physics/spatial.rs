@@ -37,7 +37,7 @@ impl Orientation {
     }
 
     Orientation {
-      orientation
+      orientation : vec![0.0]
     }
   }
 }

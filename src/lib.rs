@@ -1,5 +1,5 @@
 use num_bigint::BigInt;
-use crate::physics::temporal::Moment;
+use crate::physics::temporal::{Moment, Duration};
 use crate::physics::spatial::{Point, Speed};
 
 pub mod physics;
@@ -24,15 +24,42 @@ impl Object {
      }
   }
 
+  pub fn set_begin_existence(&self, moment: &Moment) -> Self {
+    Self {
+      begin_existence : moment.clone(),
+      end_existence : self.end_existence.clone(),
+      geometry : self.geometry.clone(),
+      normalized_speed : self.normalized_speed.clone(),
+    }
+  }
+
   pub fn begin_existence(&self) -> Moment {
     self.begin_existence.clone()
+  }
+
+  pub fn set_end_existence(self, moment: &Moment) -> Self {
+    Self {
+      begin_existence : self.begin_existence,
+      end_existence : moment.clone(),
+      geometry : self.geometry,
+      normalized_speed : self.normalized_speed,
+    }
+  }
+
+  pub fn set_duration(self, duration: Duration) -> Self {
+    Object {
+      begin_existence : duration.begin(),
+      end_existence : duration.end(),
+      geometry : self.geometry,
+      normalized_speed : self.normalized_speed,
+    }
   }
 
   pub fn end_existence(&self) -> Moment {
     self.end_existence.clone()
   }
 
-  pub fn geometry(&self) -> Vec<Point> {
+  pub fn set_geometry(&self) -> Vec<Point> {
     self.geometry.clone()
   }
 
