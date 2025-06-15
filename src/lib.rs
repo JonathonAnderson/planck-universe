@@ -97,4 +97,15 @@ impl Object {
         ..self.clone()
       }
   }
+
+  pub fn orientation(&self) -> Vec<f64> {
+    self.orientation.clone()
+  }
+
+  pub fn set_orientation(self, orientation: Vec<f64>) -> Self {
+    Self {
+      orientation,
+      ..self.clone()
+    }
+  }
 }
