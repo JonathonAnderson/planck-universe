@@ -1,6 +1,7 @@
 use planck_universe::physics::motion::*;
 use planck_universe::physics::temporal::*;
 use planck_universe::physics::geometric::*;
+use planck_universe::Object;
 use num_bigint::BigInt;
 
 pub fn main() -> () {
@@ -26,4 +27,8 @@ pub fn main() -> () {
     let line0: Line = Line::new(&point0, &point1);
 
     println!("{:#?}", line0);
+
+    let object0: Object = Object::new(&moment0, &moment1, &vec![point0, point1], &speed0);
+
+    println!("{:#?}", object0);
 }

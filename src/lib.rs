@@ -2,7 +2,7 @@ use physics::{temporal::*, geometric::*, motion::*};
 
 pub mod physics;
 
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct Object {
   begin_existence: Moment,
   end_existence: Moment,
