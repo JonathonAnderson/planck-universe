@@ -11,7 +11,7 @@ pub struct Object {
 
   geometry: Vec<Point>,
 
-  orientation: Vec<f64>,
+  inertial_orientation: Vec<f64>,
 
   normalized_speed: Speed,
 }
@@ -22,14 +22,14 @@ impl Default for Object {
     let begin_existence = Moment::new(BigInt::from(0));
     let end_existence = Moment::new(BigInt::from(0));
     let geometry = [].to_vec();
-    let orientation = vec![0.0];
+    let inertial_orientation = vec![0.0];
     let normalized_speed = Speed::new(0.0);
 
     Self{
       begin_existence,
       end_existence,
       geometry,
-      orientation,
+      inertial_orientation,
       normalized_speed,
     }
   }
@@ -98,13 +98,13 @@ impl Object {
       }
   }
 
-  pub fn orientation(&self) -> Vec<f64> {
-    self.orientation.clone()
+  pub fn intertial_orientation(&self) -> Vec<f64> {
+    self.inertial_orientation.clone()
   }
 
-  pub fn set_orientation(self, orientation: Vec<f64>) -> Self {
+  pub fn set_inertial_orientation(self, inertial_orientation: Vec<f64>) -> Self {
     Self {
-      orientation,
+      inertial_orientation,
       ..self.clone()
     }
   }
