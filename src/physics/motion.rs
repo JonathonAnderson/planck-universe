@@ -1,7 +1,7 @@
 const MAX_SPEED: f64 = 1.0;
 const MIN_SPEED: f64 = -1.0;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Speed {
   negative_normalized: f64,
 }
