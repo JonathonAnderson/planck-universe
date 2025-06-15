@@ -48,7 +48,7 @@ impl Line {
                       axis += 1;
                     }
 
-                    length.sqrt()`
+                    length.sqrt()
                   };
 
     Line {
