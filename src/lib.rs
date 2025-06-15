@@ -88,14 +88,14 @@ impl Object {
     }
   }
 
+  pub fn geometry(self) -> Vec<Point> {
+    self.geometry
+  }
+
   pub fn set_geometry(self, geometry: Vec<Point>) -> Self {
       Self {
         geometry : geometry.clone(),
         ..self.clone()
       }
-  }
-
-  pub fn geometry(self) -> Vec<Point> {
-    self.geometry
   }
 }
