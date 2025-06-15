@@ -43,6 +43,7 @@ pub fn main() -> () {
 
     println!("{:#?}", line0);
 
+    // This is a line moving at zero speed and frozen in time
     let object0: Object = Object::new(&moment0, &moment1, &vec![point0, point1], &speed0);
 
     println!("{:#?}", object0);
