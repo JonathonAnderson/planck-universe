@@ -33,23 +33,23 @@ impl Line {
     let point0 = point0.clone();
     let point1 = point1.clone();
     let length =  {
-                  let mut axis = 0;
+`                   let mut axis = 0;
 
-                  let point0_units: Vec<BigInt> = point0.units_from_origin();
-                  let point1_units: Vec<BigInt> = point1.units_from_origin();
+                    let point0_units: Vec<BigInt> = point0.units_from_origin();
+                    let point1_units: Vec<BigInt> = point1.units_from_origin();
 
-                  let mut length: BigInt = BigInt::from(0);
+                    let mut length: BigInt = BigInt::from(0);
 
-                  while axis < point0_units.len() {
-                    let units0: &BigInt = point0_units.get(axis).unwrap();
-                    let units1: &BigInt = point1_units.get(axis).unwrap();
+                    while axis < point0_units.len() {
+                      let units0: &BigInt = point0_units.get(axis).unwrap();
+                      let units1: &BigInt = point1_units.get(axis).unwrap();
 
-                    length += (units0 - units1).pow(2);
-                    axis += 1;
-                  }
+                      length += (units0 - units1).pow(2);
+                      axis += 1;
+                    }
 
-                  length.sqrt()
-                };
+                    length.sqrt()`
+                  };
 
     Line {
       point0,
