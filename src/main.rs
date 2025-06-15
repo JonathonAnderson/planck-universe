@@ -69,6 +69,6 @@ pub fn main() -> () {
     println!("{:#?}", point_object_0);
 
     // This is a line moving at zero speed and exists for a fixed duration
-    let dimension_1_line_0: Object = Object::new(&moment_0, &moment_1, &vec![point_0.clone(), point_1.clone()], &speed_0);
+    let dimension_1_line_0: Object = Object::new(&moment_2, &moment_3, &vec![point_0.clone(), point_1.clone()], &speed_0);
     println!("{:#?}", dimension_1_line_0);
 }
