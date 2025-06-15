@@ -3,7 +3,20 @@ const MIN: f64 = -1.0;
 
 #[derive(Debug)]
 pub struct Speed {
-  value: f64,
+  negative_normalized: f64,
+}
+
+impl Speed {
+  pub fn new(negative_normalized: f64) -> Self {
+    if (negative_normalized < MIN) || (negative_normalized > MAX) { todo!() };
+
+    Speed {
+      negative_normalized
+    }
+  }
+  pub fn value(&self) -> f64 {
+    self.negative_normalized
+  }
 }
 
 impl crate::units::Unit for Speed {
@@ -12,18 +25,5 @@ impl crate::units::Unit for Speed {
   }
   fn symbol(&self) -> char {
     'S'
-  }
-}
-
-impl crate::units::SignedNormalized for Speed {
-  fn new(value: f64) -> Self {
-    if (value < MIN) || (value > MAX) { todo!() };
-
-    Speed {
-      value
-    }
-  }
-  fn value(&self) -> f64 {
-    self.value
   }
 }
