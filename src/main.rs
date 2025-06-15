@@ -1,4 +1,4 @@
-use planck_universe::physics::Speed;
+use planck_universe::physics::motion::*;
 use planck_universe::physics::temporal::*;
 use planck_universe::physics::geometric::*;
 use num_bigint::BigInt;
