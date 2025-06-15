@@ -1,6 +1,6 @@
 use num_bigint::BigInt;
 use crate::physics::temporal::{Moment, Duration};
-use crate::physics::spatial::{Point, Speed};
+use crate::physics::spatial::{Point, Speed, InertialOrientation};
 
 pub mod physics;
 
@@ -11,7 +11,7 @@ pub struct Object {
 
   geometry: Vec<Point>,
 
-  inertial_orientation: Vec<f64>,
+  inertial_orientation: InertialOrientation,
 
   normalized_speed: Speed,
 }
@@ -22,7 +22,7 @@ impl Default for Object {
     let begin_existence = Moment::new(BigInt::from(0));
     let end_existence = Moment::new(BigInt::from(0));
     let geometry = [].to_vec();
-    let inertial_orientation = vec![0.0];
+    let inertial_orientation = InertialOrientation::new(vec![0.0]);
     let normalized_speed = Speed::new(0.0);
 
     Self{
@@ -99,12 +99,12 @@ impl Object {
   }
 
   pub fn intertial_orientation(&self) -> Vec<f64> {
-    self.inertial_orientation.clone()
+    self.inertial_orientation.orientation()
   }
 
   pub fn set_inertial_orientation(self, inertial_orientation: Vec<f64>) -> Self {
     Self {
-      inertial_orientation,
+      inertial_orientation : InertialOrientation::new(inertial_orientation),
       ..self.clone()
     }
   }

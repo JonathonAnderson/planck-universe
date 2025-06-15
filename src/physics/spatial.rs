@@ -24,9 +24,20 @@ impl Point {
 // const MIN_ORIENTATION: f64 = -1.0;
 // const MAX_ORIENTATION: f64 = 1.0;
 
-pub struct Orientation {}
+#[derive(Debug, Clone)]
+pub struct InertialOrientation {
+  orientation: Vec<f64>
+}
 
-impl Orientation {
+impl InertialOrientation {
+  pub fn new(orientation: Vec<f64>) -> Self {
+    Self {
+      orientation
+    }
+  }
+  pub fn orientation(&self) -> Vec<f64> {
+    self.orientation.clone()
+  }
 }
 
 ////////////////////////////////////////
