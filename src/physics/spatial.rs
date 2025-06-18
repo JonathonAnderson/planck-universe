@@ -21,26 +21,7 @@ impl Point {
 }
 
 ////////////////////////////////////////
-// const MIN_ORIENTATION: f64 = -1.0;
-// const MAX_ORIENTATION: f64 = 1.0;
-
-#[derive(Debug, Clone)]
-pub struct InertialOrientation {
-  orientation: Vec<f64>
-}
-
-impl InertialOrientation {
-  pub fn new(orientation: Vec<f64>) -> Self {
-    Self {
-      orientation
-    }
-  }
-  pub fn orientation(&self) -> Vec<f64> {
-    self.orientation.clone()
-  }
-}
-
-////////////////////////////////////////
+/// Speed is normalized on the speed of light
 const MAX_SPEED: f64 = 1.0;
 const MIN_SPEED: f64 = -1.0;
 
@@ -64,15 +45,9 @@ impl Speed {
 }
 
 ////////////////////////////////////////
+/// Velocity is speed in the direction of each axis
 pub struct Velocity {
-  // speed: Speed,
-  // orientation: Orientation,
-}
-
-impl Velocity {
-  pub fn new() -> Self {
-    Velocity {}
-  }
+  velocity: Vec<f64>
 }
 
 ////////////////////////////////////////
