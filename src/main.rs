@@ -73,7 +73,7 @@ pub fn main() -> () {
     println!("{:#?}", duration_0);
 
     let period_0: Period = Period::new(&duration_0, &duration_1);
-    println!("A period, two durations where the second is said to be a response to the first");
+    println!("A period, two durations where one duration is thought to be a response to the other (causally related)");
     println!("Note that this allows irregular and asynchronous periods");
     println!("{:#?}", period_0);
 
