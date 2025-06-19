@@ -63,7 +63,7 @@ impl Period {
     
     let duration0 = duration0.clone();
     let duration1 = duration1.clone();
-    let duration  = &duration1.duration - &duration0.duration;
+    let duration  = &duration1.duration + &duration0.duration;
 
     Period {
       duration0,
