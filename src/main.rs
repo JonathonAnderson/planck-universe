@@ -15,8 +15,10 @@ pub fn main() -> () {
     println!("{:#?}", speed);
     println!("{:#?}", speed_neg);
 
+    // let _velocity = todo!();
+
     //
-    // Geometrics
+    // Spatial
     //
     enum Axis {
         X = 0,
@@ -43,7 +45,7 @@ pub fn main() -> () {
     println!("A line, which is a shape made from two points");
     println!("{:#?}", line_0);
 
-    // Shape
+    // Polygon
     let mut point_2_vec: Vec<BigInt> = Vec::new();
     point_2_vec.insert(Axis::X as usize, BigInt::from(76));
     point_2_vec.insert(Axis::Y as usize, BigInt::from(46));
