@@ -1,7 +1,6 @@
 use planck_universe::physics::temporal::*;
 use planck_universe::physics::spatial::*;
 use planck_universe::physics::motion::*;
-use planck_universe::Object;
 use num_bigint::BigInt;
 use rust_decimal::Decimal;
 
@@ -76,45 +75,4 @@ pub fn main() -> () {
     println!("A period, two durations where one duration is thought to be a response to the other (causally related)");
     println!("Note that this allows irregular and asynchronous periods");
     println!("{:#?}", period_0);
-
-    //
-    // Objects
-    //
-    println!("This is a null point moving at zero speed");
-    let null_point_0: Object = Object::new();
-    println!("{:#?}", null_point_0);
-
-    println!("This is a vector with a point but no other properties");
-        let spatial_point_0: Object = Object::new();
-        let spatial_point_0: Object = Object::set_geometry(spatial_point_0,vec![point_0, point_1]);
-    println!("{:#?}", spatial_point_0);
-
-    println!("This is a point moving at zero speed and exists for a fix duration");
-    let point_object_0: Object = Object::new();
-    let point_object_0 = point_object_0.set_t_0(&moment_0);
-    let point_object_0 = point_object_0.set_t_final(&moment_1);
-    println!("{:#?}", point_object_0);
-
-    println!("This is a line moving at non-zero speed and exists for a fixed duration");
-    let one_dimensional_line_0: Object = Object::new();
-    let one_dimensional_line_0 = one_dimensional_line_0.set_normalized_speed(speed_0_5);
-    let one_dimensional_line_0 = one_dimensional_line_0.set_t_0(&moment_2);
-    let one_dimensional_line_0 = one_dimensional_line_0.set_t_final(&moment_3);
-    println!("{:#?}", one_dimensional_line_0);
-
-    // println!("This is a mult-dimensonal moving at zero speed and exists for a fixed duration");
-    // let multi_dimensional_object_0: Object = Object::new();
-    // let multi_dimensional_object_0 = multi_dimensional_object_0.set_t_0(&moment_2);
-    // let multi_dimensional_object_0 = multi_dimensional_object_0.set_t_final(&moment_3);
-    // println!("{:#?}", multi_dimensional_object_0);
-
-    // println!("A 3 Dimensional object moving at a constant normalized speed");
-    // let three_dimensional_constant_speed_0: Object = Object::new();
-    // let three_dimensional_constant_speed_0 = three_dimensional_constant_speed_0.set_normalized_speed(Speed::new(BigFloat::from_f64(0.36, 50)));
-    // println!("{:#?}", three_dimensional_constant_speed_0);
-
-    // println!("An oriented 3D object moving at zero speed");
-    // let three_dimensional_constant_speed_0: Object = Object::new();
-    // println!("{:#?}", three_dimensional_constant_speed_0);
-
 }
