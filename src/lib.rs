@@ -62,7 +62,7 @@ impl Object {
   }
 
   pub fn duration(self) -> Duration {
-    Duration::new(&self.t_final, &self.t_0)
+    Duration::new(&self.t_0, &self.t_final)
   }
 
   pub fn set_duration(self, duration: Duration) -> Self {
@@ -74,7 +74,7 @@ impl Object {
   }
 
   pub fn normalized_speed(self) -> Speed {
-    Speed::new_negative_normalized(self.speed.negative_normalized())
+    self.speed.clone()
   }
 
   pub fn set_normalized_speed(self, speed: Speed) -> Self {

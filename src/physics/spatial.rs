@@ -8,9 +8,9 @@ pub struct Point {
 }
 
 impl Point {
-  pub fn new (units_from_origin: Vec<BigInt>) -> Self {
+  pub fn new (units_from_origin: &Vec<BigInt>) -> Self {
     Point {
-      units_from_origin,
+      units_from_origin : units_from_origin.clone(),
     }
   }
   pub fn units_from_origin(&self) -> Vec<BigInt> {
@@ -18,6 +18,23 @@ impl Point {
   }
   pub fn point(&self, axis: usize) -> BigInt {
     self.units_from_origin[axis].clone()
+  }
+}
+
+////////////////////////////////////////
+#[derive(Debug)]
+pub struct Shape {
+  points: Vec<Point>,
+}
+
+impl Shape {
+  pub fn new( points: &Vec<&Point>) -> Self {
+    Shape {
+      points : points.iter().map(|&point| point.clone()).collect()
+    }
+  }
+  pub fn points(&self) -> Vec<Point> {
+    self.points.clone()
   }
 }
 
@@ -51,71 +68,3 @@ pub struct Velocity {
   //velocity: Vec<Speed>
 }
 
-////////////////////////////////////////
-#[derive(Debug)]
-pub struct Shape {
-  points: Vec<Point>,
-}
-
-impl Shape {
-  pub fn new( points: Vec<Point>) -> Self {
-    Shape {
-      points
-    }
-  }
-  pub fn points(&self) -> Vec<Point> {
-    self.points.clone()
-  }
-}
-
-////////////////////////////////////////
-#[derive(Debug)]
-pub struct Line {
-  point0: Point,
-  point1: Point,
-  length: BigInt,
-}
-
-impl Line {
-  pub fn new(point0: &Point, point1: &Point) -> Self {
-    // TODO: Received points with different number of axes
-    if point0.units_from_origin().len() != point1.units_from_origin().len() { todo!() }
-
-    let point0 = point0.clone();
-    let point1 = point1.clone();
-    let length =  {
-                    let mut axis = 0;
-
-                    let point0_units: Vec<BigInt> = point0.units_from_origin();
-                    let point1_units: Vec<BigInt> = point1.units_from_origin();
-
-                    let mut length: BigInt = BigInt::from(0);
-
-                    while axis < point0_units.len() {
-                      let units0: &BigInt = point0_units.get(axis).unwrap();
-                      let units1: &BigInt = point1_units.get(axis).unwrap();
-
-                      length += (units0 - units1).pow(2);
-                      axis += 1;
-                    }
-
-                    length.sqrt()
-                  };
-
-    Line {
-      point0,
-      point1,
-      length,
-    }
-  }
-
-  pub fn point0(&self) -> Point{
-    self.point0.clone()
-  }
-  pub fn point1(&self) -> Point {
-    self.point1.clone()
-  }
-  pub fn length(&self) -> BigInt {
-    self.length.clone()
-  }
-}

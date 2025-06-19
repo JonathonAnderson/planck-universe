@@ -29,10 +29,10 @@ pub fn main() -> () {
     point_1_vec.insert(Axis::Y as usize, BigInt::from(91));
     point_1_vec.insert(Axis::Z as usize, BigInt::from(4));
 
-    let point_0: Point =  Point::new(point_0_vec);
-    let point_1: Point =  Point::new(point_1_vec);
+    let point_0: Point =  Point::new(&point_0_vec);
+    let point_1: Point =  Point::new(&point_1_vec);
 
-    let _line_0: Line = Line::new(&point_0, &point_1);
+    let _line_0: Shape = Shape::new(&vec![&point_0, &point_1]);
 
     // Shape
     let mut point_2_vec: Vec<BigInt> = Vec::new();
@@ -44,11 +44,11 @@ pub fn main() -> () {
     point_3_vec.insert(Axis::Y as usize, BigInt::from(62));
     point_3_vec.insert(Axis::Z as usize, BigInt::from(84));
 
-    let point_2: Point =  Point::new(point_2_vec);
-    let point_3: Point =  Point::new(point_3_vec);
+    let point_2: Point =  Point::new(&point_2_vec);
+    let point_3: Point =  Point::new(&point_3_vec);
 
-    let shape_0_points: Vec<Point> = vec![point_0.clone(), point_1.clone(), point_2.clone(), point_3.clone()];
-    let _shape_0: Shape = Shape::new(shape_0_points);
+    let shape_0_points: Vec<&Point> = vec![&point_0, &point_1, &point_2, &point_3];
+    let _shape_0: Shape = Shape::new(&shape_0_points);
 
     //
     // Temporal
