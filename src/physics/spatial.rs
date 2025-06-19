@@ -24,9 +24,9 @@ pub struct Shape {
 }
 
 impl Shape {
-  pub fn new( points: &[&Point]) -> Self {
+  pub fn new(points: &[Point]) -> Self {
     Shape {
-      points : points.to_vec().iter().map(|point| (*point).clone()).collect()
+      points : points.to_vec(),
     }
   }
   pub fn points(&self) -> Vec<Point> {

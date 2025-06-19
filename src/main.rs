@@ -39,7 +39,7 @@ pub fn main() -> () {
     println!("A point, the most fundamental spatial unit");
     println!("{:#?}", point_0);
 
-    let line_0: Shape = Shape::new(&vec![&point_0, &point_1]);
+    let line_0: Shape = Shape::new(&vec![point_0.clone(), point_1.clone()]);
     println!("A line, which is a shape made from two points");
     println!("{:#?}", line_0);
 
@@ -56,7 +56,7 @@ pub fn main() -> () {
     let point_2: Point =  Point::new(&point_2_vec);
     let point_3: Point =  Point::new(&point_3_vec);
 
-    let shape_0_points: Vec<&Point> = vec![&point_0, &point_1, &point_2, &point_3];
+    let shape_0_points: Vec<Point> = vec![point_0, point_1, point_2, point_3];
     let shape_0: Shape = Shape::new(&shape_0_points);
     println!("A poloygon, formed from four points");
     println!("{:#?}", shape_0);
