@@ -8,7 +8,12 @@ pub fn main() -> () {
     //
     // Motion
     //
-    let speed_0_5: Speed = Speed::new_negative_normalized(Decimal::new(5, 1));
+    let speed: Speed = Speed::new_negative_normalized(Decimal::new(4375, 4));
+    let speed_neg: Speed = Speed::new_negative_normalized(Decimal::new(-4375, 4));
+    println!("A speed, in negative normalized form where 0.0 is no motion and 1.0 is the speed of light.");
+    println!("Negative values just for fun");
+    println!("{:#?}", speed);
+    println!("{:#?}", speed_neg);
 
     //
     // Geometrics
