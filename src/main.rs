@@ -32,8 +32,12 @@ pub fn main() -> () {
 
     let point_0: Point =  Point::new(&point_0_vec);
     let point_1: Point =  Point::new(&point_1_vec);
+    println!("A point, the most fundamental spatial unit");
+    println!("{:#?}", point_0);
 
-    let _line_0: Shape = Shape::new(&vec![&point_0, &point_1]);
+    let line_0: Shape = Shape::new(&vec![&point_0, &point_1]);
+    println!("A line, which is a shape made from two points");
+    println!("{:#?}", line_0);
 
     // Shape
     let mut point_2_vec: Vec<BigInt> = Vec::new();
@@ -49,7 +53,9 @@ pub fn main() -> () {
     let point_3: Point =  Point::new(&point_3_vec);
 
     let shape_0_points: Vec<&Point> = vec![&point_0, &point_1, &point_2, &point_3];
-    let _shape_0: Shape = Shape::new(&shape_0_points);
+    let shape_0: Shape = Shape::new(&shape_0_points);
+    println!("A poloygon, formed from four points");
+    println!("{:#?}", shape_0);
 
     //
     // Temporal
@@ -58,11 +64,18 @@ pub fn main() -> () {
     let moment_1: Moment = Moment::new(BigInt::from(60));
     let moment_2: Moment = Moment::new(BigInt::from(1076));
     let moment_3: Moment = Moment::new(BigInt::from(3234));
+    println!("A moment, the most fundamental temporal unit");
+    println!("{:#?}", moment_0);
 
     let duration_0: Duration = Duration::new(&moment_0, &moment_1);
     let duration_1: Duration = Duration::new(&moment_2, &moment_3);
+    println!("A duration, a single measure of one moment to another");
+    println!("{:#?}", duration_0);
 
-    let _period_0: Period = Period::new(&duration_0, &duration_1);
+    let period_0: Period = Period::new(&duration_0, &duration_1);
+    println!("A period, two durations where the second is said to be a response to the first");
+    println!("Note that this allows irregular and asynchronous periods");
+    println!("{:#?}", period_0);
 
     //
     // Objects
