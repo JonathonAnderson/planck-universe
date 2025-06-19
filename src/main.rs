@@ -1,5 +1,6 @@
 use planck_universe::physics::temporal::*;
 use planck_universe::physics::spatial::*;
+use planck_universe::physics::motion::*;
 use planck_universe::Object;
 use num_bigint::BigInt;
 use rust_decimal::Decimal;

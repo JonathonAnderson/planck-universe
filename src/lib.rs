@@ -1,7 +1,8 @@
 use num_bigint::BigInt;
 use rust_decimal::Decimal;
 use crate::physics::temporal::{Moment, Duration};
-use crate::physics::spatial::{Point, Speed};
+use crate::physics::spatial::Point;
+use crate::physics::motion::Speed;
 
 pub mod physics;
 
