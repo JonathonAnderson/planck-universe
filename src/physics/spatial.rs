@@ -7,9 +7,9 @@ pub struct Point {
 }
 
 impl Point {
-  pub fn new (units_from_origin: &Vec<BigInt>) -> Self {
+  pub fn new (units_from_origin: &[BigInt]) -> Self {
     Point {
-      units_from_origin : units_from_origin.clone(),
+      units_from_origin : units_from_origin.to_vec(),
     }
   }
   pub fn units_from_origin(&self) -> Vec<BigInt> {
@@ -27,9 +27,9 @@ pub struct Shape {
 }
 
 impl Shape {
-  pub fn new( points: &Vec<&Point>) -> Self {
+  pub fn new( points: &[&Point]) -> Self {
     Shape {
-      points : points.iter().map(|&point| point.clone()).collect()
+      points : points.to_vec().iter().map(|point| (*point).clone()).collect()
     }
   }
   pub fn points(&self) -> Vec<Point> {
