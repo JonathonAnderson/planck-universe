@@ -29,7 +29,7 @@ impl Shape {
       points : points.to_vec(),
     }
   }
-  pub fn points(&self) -> Vec<Point> {
+  pub fn shape(&self) -> Vec<Point> {
     self.points.clone()
   }
 }
