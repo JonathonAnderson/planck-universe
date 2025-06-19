@@ -1,36 +1,33 @@
 use num_bigint::BigInt;
+use rust_decimal::Decimal;
 use crate::physics::temporal::{Moment, Duration};
-use crate::physics::spatial::{Point, Speed, InertialOrientation};
+use crate::physics::spatial::{Point, Speed};
 
 pub mod physics;
 
 #[derive(Debug, Clone)]
 pub struct Object {
-  begin_existence: Moment,
-  end_existence: Moment,
+  t_0: Moment,
+  t_final: Moment,
 
   geometry: Vec<Point>,
 
-  inertial_orientation: InertialOrientation,
-
-  normalized_speed: Speed,
+  speed: Speed,
 }
 
 impl Default for Object {
   fn default() -> Self {
 
-    let begin_existence = Moment::new(BigInt::from(0));
-    let end_existence = Moment::new(BigInt::from(0));
+    let t_0 = Moment::new(BigInt::from(0));
+    let t_final = Moment::new(BigInt::from(0));
     let geometry = [].to_vec();
-    let inertial_orientation = InertialOrientation::new(vec![0.0]);
-    let normalized_speed = Speed::new(0.0);
+    let speed = Speed::new_negative_normalized(Decimal::new(0,0));
 
     Self{
-      begin_existence,
-      end_existence,
+      t_0,
+      t_final,
       geometry,
-      inertial_orientation,
-      normalized_speed,
+      speed,
     }
   }
 }
@@ -43,46 +40,46 @@ impl Object {
   }
   
   pub fn t_0(&self) -> Moment {
-    self.begin_existence.clone()
+    self.t_0.clone()
   }
 
   pub fn set_t_0(self, moment: &Moment) -> Self {
     Self {
-      begin_existence : moment.clone(),
+      t_0 : moment.clone(),
       ..self.clone()
     }
   }
 
   pub fn t_final(&self) -> Moment {
-    self.end_existence.clone()
+    self.t_final.clone()
   }
 
   pub fn set_t_final(self, moment: &Moment) -> Self {
     Self {
-      end_existence : moment.clone(),
+      t_final : moment.clone(),
       ..self.clone()
     }
   }
 
   pub fn duration(self) -> Duration {
-    Duration::new(&self.end_existence, &self.begin_existence)
+    Duration::new(&self.t_final, &self.t_0)
   }
 
   pub fn set_duration(self, duration: Duration) -> Self {
     Self {
-      begin_existence : duration.begin(),
-      end_existence : duration.end(),
+      t_0 : duration.begin(),
+      t_final : duration.end(),
       ..self.clone()
     }
   }
 
   pub fn normalized_speed(self) -> Speed {
-    Speed::new(self.normalized_speed.negative_normalized())
+    Speed::new_negative_normalized(self.speed.negative_normalized())
   }
 
   pub fn set_normalized_speed(self, speed: Speed) -> Self {
     Object {
-      normalized_speed : speed,
+      speed,
       ..Default::default()
     }
   }
@@ -96,16 +93,5 @@ impl Object {
         geometry : geometry.clone(),
         ..self.clone()
       }
-  }
-
-  pub fn intertial_orientation(&self) -> Vec<f64> {
-    self.inertial_orientation.orientation()
-  }
-
-  pub fn set_inertial_orientation(self, inertial_orientation: Vec<f64>) -> Self {
-    Self {
-      inertial_orientation : InertialOrientation::new(inertial_orientation),
-      ..self.clone()
-    }
   }
 }

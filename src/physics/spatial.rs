@@ -1,4 +1,5 @@
 use num_bigint::BigInt;
+use rust_decimal::Decimal;
 
 ////////////////////////////////////////
 #[derive(Debug, Clone)]
@@ -22,32 +23,32 @@ impl Point {
 
 ////////////////////////////////////////
 /// Speed is normalized on the speed of light
-const MAX_SPEED: f64 = 1.0;
-const MIN_SPEED: f64 = -1.0;
-
 #[derive(Debug, Clone)]
 pub struct Speed {
-  negative_normalized: f64,
+  negative_normalized: Decimal,
 }
 
 impl Speed {
-  pub fn new(negative_normalized: f64) -> Self {
+  pub fn new_negative_normalized(speed: Decimal) -> Self {
+    let max_speed: Decimal = Decimal::new(1, 0);
+    let min_speed: Decimal = Decimal::new(-1, 0);
+
     // TODO: received value that falls outside the negative normalized bounds of -1 to 1
-    if (negative_normalized < MIN_SPEED) || (negative_normalized > MAX_SPEED) { todo!() };
+    if (speed < min_speed) || (speed > max_speed) { todo!() };
 
     Speed {
-      negative_normalized
+      negative_normalized : speed
     }
   }
-  pub fn negative_normalized(&self) -> f64 {
-    self.negative_normalized
+  pub fn negative_normalized(&self) -> Decimal {
+    self.negative_normalized.clone()
   }
 }
 
 ////////////////////////////////////////
 /// Velocity is speed in the direction of each axis
 pub struct Velocity {
-  velocity: Vec<f64>
+  //velocity: Vec<Speed>
 }
 
 ////////////////////////////////////////
