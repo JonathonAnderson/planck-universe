@@ -8,5 +8,4 @@ license = "MIT"
 [dependencies]
 bevy = { version = "0.15.3", features = ["dynamic_linking"] }
 num-bigint = "0.4.6"
-num-traits = "0.2.19"
 rust_decimal = "1.37.2"
