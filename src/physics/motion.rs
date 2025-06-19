@@ -1,5 +1,6 @@
 use rust_decimal::Decimal;
 
+////////////////////////////////////////
 /// Speed is normalized on the speed of light
 /// and allows negatives just to see what happens
 #[derive(Debug, Clone)]
