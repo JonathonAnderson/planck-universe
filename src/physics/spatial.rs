@@ -15,9 +15,6 @@ impl Point {
   pub fn units_from_origin(&self) -> Vec<BigInt> {
     self.units_from_origin.clone()
   }
-  pub fn point(&self, axis: usize) -> BigInt {
-    self.units_from_origin[axis].clone()
-  }
 }
 
 ////////////////////////////////////////
