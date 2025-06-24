@@ -73,8 +73,8 @@ pub fn main() -> () {
     println!("A moment, the most fundamental temporal unit");
     println!("{:#?}", moment_0);
 
-    let duration_0: Duration = Duration::new(&moment_0, &moment_1);
-    let duration_1: Duration = Duration::new(&moment_2, &moment_3);
+    let duration_0: Time = Time::new(&moment_0, &moment_1);
+    let duration_1: Time = Time::new(&moment_2, &moment_3);
     println!("A duration, a single measure of one moment to another");
     println!("{:#?}", duration_0);
 

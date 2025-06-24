@@ -19,23 +19,23 @@ impl Moment {
 
 ////////////////////////////////////////
 #[derive(Debug, Clone)]
-pub struct Duration {
+pub struct Time {
   moment0: Moment,
   moment1: Moment,
-  duration: BigInt,
+  time: BigInt,
 }
 
-impl Duration {
+impl Time {
   pub fn new(moment0: &Moment, moment1: &Moment) -> Self {
     
     let moment0 = moment0.clone();
     let moment1 = moment1.clone();
-    let duration = moment1.units_from_origin.clone() - moment0.units_from_origin.clone();
+    let time = moment1.units_from_origin.clone() - moment0.units_from_origin.clone();
 
-    Duration {
+    Time {
       moment0,
       moment1,
-      duration,
+      time,
     }
 
   }
@@ -45,40 +45,40 @@ impl Duration {
   pub fn end(&self) -> Moment {
     self.moment1.clone()
   }
-  pub fn duration(&self) -> BigInt {
-    self.duration.clone()
+  pub fn time(&self) -> BigInt {
+    self.time.clone()
   }
 }
 
 ////////////////////////////////////////
 #[derive(Debug)]
 pub struct Period {
-  duration0: Duration,
-  duration1: Duration,
-  duration:  BigInt,
+  time0: Time,
+  time1: Time,
+  time:  BigInt,
 }
 
 impl Period {
-  pub fn new(duration0: &Duration, duration1: &Duration) -> Self {
+  pub fn new(time0: &Time, time1: &Time) -> Self {
     
-    let duration0 = duration0.clone();
-    let duration1 = duration1.clone();
-    let duration  = &duration0.duration + &duration1.duration;
+    let time0 = time0.clone();
+    let time1 = time1.clone();
+    let time  = &time0.time + &time1.time;
 
     Period {
-      duration0,
-      duration1,
-      duration,
+      time0,
+      time1,
+      time,
     }
 
   }
-  pub fn begin(&self) -> Duration {
-    self.duration0.clone()
+  pub fn begin(&self) -> Time {
+    self.time0.clone()
   }
-  pub fn end(&self) -> Duration {
-    self.duration1.clone()
+  pub fn end(&self) -> Time {
+    self.time1.clone()
   }
-  pub fn duration(&self) -> BigInt {
-    self.duration.clone()
+  pub fn time(&self) -> BigInt {
+    self.time.clone()
   }
 }
